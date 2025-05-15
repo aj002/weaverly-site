@@ -1,35 +1,378 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    body {background-color: #fefefe}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; background-color: #ffffff}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #000000; -webkit-text-stroke: #000000; min-height: 15.0px}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font: 19.2px 'Apple Color Emoji'; font-kerning: none}
-    span.s2 {font-kerning: none}
-    span.s3 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s4 {font: 12.0px 'Helvetica Neue'; font-kerning: none}
-    span.s5 {font-kerning: none; background-color: #ffffff}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Weaverly – Join the Community</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brown: #a16a49;
+      --deep-brown: #7a5849;
+      --cream: #e7d7c1;
+      --beige: #c7b8aa;
+      --white: #fff;
+      --shadow: 0 4px 32px 0 rgba(161, 106, 73, 0.08);
+      --radius: 18px;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Inter', Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--cream);
+      font-family: var(--font-sans);
+      color: var(--deep-brown);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--cream);
+      padding: 2.5rem 0 1.2rem 0;
+      text-align: center;
+      border-bottom: 1.5px solid var(--beige);
+    }
+    header h1 {
+      color: var(--brown);
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      letter-spacing: 0.03em;
+      margin: 0 0 0.2em 0;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.22rem;
+      color: var(--deep-brown);
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+    #form-container {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      margin: 2.5rem auto 1.5rem auto;
+      max-width: 430px;
+      width: 96%;
+      padding: 2.2rem 2rem 2.5rem 2rem;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .step {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeIn 0.4s;
+    }
+    .step.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    label {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    select, input[type="text"], input[type="email"] {
+      width: 100%;
+      font-size: 1.08rem;
+      padding: 0.85em 1em;
+      margin-top: 0.4em;
+      border: 1.5px solid var(--beige);
+      border-radius: 10px;
+      background: var(--cream);
+      color: var(--deep-brown);
+      box-sizing: border-box;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    select:focus, input:focus {
+      border: 1.5px solid var(--brown);
+      box-shadow: 0 0 0 2px #a16a4922;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+      margin-top: 0.6em;
+    }
+    .checkbox-group label {
+      font-weight: 400;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55em;
+      background: #f7f2ed;
+      border-radius: 8px;
+      padding: 0.55em 0.8em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border 0.2s;
+    }
+    .checkbox-group input[type="checkbox"] {
+      accent-color: var(--brown);
+      width: 1.1em;
+      height: 1.1em;
+      margin-right: 0.2em;
+    }
+    button {
+      background: var(--brown);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 1.13rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 9px;
+      padding: 0.82em 1.4em;
+      margin-top: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 #a16a4912;
+      transition: background 0.18s, box-shadow 0.18s;
+    }
+    button:hover, button:focus {
+      background: var(--deep-brown);
+      box-shadow: 0 4px 16px 0 #a16a4922;
+    }
+    #thankyou {
+      display: none;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      margin: 2.5rem auto 2.5rem auto;
+      max-width: 430px;
+      width: 96%;
+      padding: 3.2rem 2rem 3rem 2rem;
+      text-align: center;
+      font-size: 1.35rem;
+      color: var(--brown);
+      font-family: var(--font-serif);
+      animation: fadeIn 0.6s;
+    }
+    footer {
+      background: var(--beige);
+      color: var(--deep-brown);
+      border-top: 1.5px solid var(--cream);
+      padding: 2.2rem 0 1.8rem 0;
+      margin-top: auto;
+      font-size: 1.05rem;
+    }
+    #contact-us, #stay-in-touch {
+      max-width: 430px;
+      margin: 0 auto 1.1rem auto;
+      text-align: center;
+    }
+    #contact-us a {
+      color: var(--brown);
+      text-decoration: underline dotted;
+      font-weight: 600;
+      transition: color 0.18s;
+    }
+    #contact-us a:hover {
+      color: var(--deep-brown);
+    }
+    #stay-in-touch h3 {
+      font-family: var(--font-serif);
+      color: var(--brown);
+      font-size: 1.18rem;
+      margin-bottom: 0.3em;
+      margin-top: 0.5em;
+      font-weight: 700;
+    }
+    #stay-in-touch form {
+      margin-top: 0.5em;
+      display: flex;
+      gap: 0.5em;
+      justify-content: center;
+      align-items: center;
+    }
+    #stay-in-touch input[type="email"] {
+      width: 180px;
+      padding: 0.7em 0.9em;
+      font-size: 1.02rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--brown);
+      background: var(--cream);
+      color: var(--deep-brown);
+      outline: none;
+      transition: border 0.2s;
+    }
+    #stay-in-touch input[type="email"]:focus {
+      border: 1.5px solid var(--deep-brown);
+    }
+    #stay-in-touch button[type="submit"] {
+      background: var(--brown);
+      color: var(--white);
+      font-size: 1.01rem;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7em 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    #stay-in-touch button[type="submit"]:hover {
+      background: var(--deep-brown);
+    }
+    @media (max-width: 600px) {
+      #form-container, #thankyou, footer, #stay-in-touch, #contact-us {
+        padding-left: 0.5em !important;
+        padding-right: 0.5em !important;
+      }
+      #form-container, #thankyou {
+        padding: 1.2rem 0.7rem 1.4rem 0.7rem;
+      }
+      footer {
+        padding: 1.2rem 0 1.2rem 0;
+      }
+    }
   </style>
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 19.2px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1">✨</span><span class="s2"><b> Let's get to know you</b></span></h1>
-<p class="p2"><span class="s2"><b>Which season of life are you in? </b></span><span class="s3">🌱</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">-- Pick one --</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">Just starting out (early 20s-ish)</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">Juggling work, life &amp; maybe a family</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">I'm a mama (of tiny or grown humans!)</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">Life 2.0 — rediscovering, rebooting</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">Post-retirement &amp; reimagining life</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s2">None of these, but I’m craving connection </span><span class="s3">💛</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span></p>
-<p class="p5"><span class="s2"></span><br></p>
+  <header>
+    <h1>Weaverly</h1>
+    <p>Find your people, share your stories, and make meaningful connections.</p>
+  </header>
+
+  <div id="form-container">
+    <!-- Step 1 -->
+    <div class="step active" id="step1">
+      <label for="category-select">Which life stage best describes you?</label>
+      <select id="category-select" required>
+        <option value="">Select...</option>
+        <option value="student">Student</option>
+        <option value="working-professional">Working Professional</option>
+        <option value="parent">Parent</option>
+        <option value="retired">Retired</option>
+        <option value="other">Other</option>
+      </select>
+      <button onclick="goToNext()">Next ➡️</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" id="step2">
+      <label>What life experiences would you like to share or discuss?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="life-experiences" value="career"> Career journeys 💼</label>
+        <label><input type="checkbox" name="life-experiences" value="parenting"> Parenting 🧸</label>
+        <label><input type="checkbox" name="life-experiences" value="moving-cities"> Moving cities 🌏</label>
+        <label><input type="checkbox" name="life-experiences" value="relationships"> Relationships 💬</label>
+        <label><input type="checkbox" name="life-experiences" value="self-discovery"> Self-discovery 🌱</label>
+        <label><input type="checkbox" name="life-experiences" value="other"> Other</label>
+      </div>
+      <button onclick="goToNext()">Next ➡️</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="step3">
+      <label>How do you like to spend time with new friends?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="spend-time" value="exploring"> Exploring 🛍️🗺️</label>
+        <label><input type="checkbox" name="spend-time" value="walk-coffee"> Walk + coffee ☕🚶‍♀️</label>
+        <label><input type="checkbox" name="spend-time" value="night-dinner"> Night out + dinner 🍽️🎶</label>
+        <label><input type="checkbox" name="spend-time" value="book-discussion"> Book discussions 📚</label>
+        <label><input type="checkbox" name="spend-time" value="movie-night"> Movie night 🎥</label>
+      </div>
+      <button onclick="goToNext()">Next ➡️</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step" id="step4">
+      <label for="name-input">Your name 👋</label>
+      <input type="text" id="name-input" placeholder="First name" required />
+
+      <label for="email-input">Your email 📧</label>
+      <input type="email" id="email-input" placeholder="you@example.com" required />
+
+      <label for="phone-input">Your phone number 📱 (optional)</label>
+      <input type="text" id="phone-input" placeholder="+91 98765 43210" pattern="^\+?\d{7,15}$" />
+
+      <button onclick="submitForm()">Join Weaverly</button>
+    </div>
+  </div>
+
+  <!-- Thank you message -->
+  <div id="thankyou">
+    Thanks for signing up! We’ll be in touch soon. 💛
+  </div>
+
+  <footer>
+    <div id="contact-us">
+      <p>Questions? <a href="mailto:hello@weaverly.in">Contact us</a></p>
+    </div>
+    <div id="stay-in-touch">
+      <h3>Stay in touch 💌</h3>
+      <p>Join our mailing list for updates, meetup invites, and community news.</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+        <input type="email" placeholder="Your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </footer>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    function goToNext() {
+      if (!validateStep(currentStep)) return;
+      document.getElementById(`step${currentStep}`).classList.remove('active');
+      currentStep++;
+      if (currentStep > totalSteps) currentStep = totalSteps;
+      document.getElementById(`step${currentStep}`).classList.add('active');
+    }
+
+    function validateStep(step) {
+      if (step === 1) {
+        const select = document.getElementById('category-select');
+        if (!select.value) {
+          alert('Please select a life stage.');
+          return false;
+        }
+      } else if (step === 4) {
+        const name = document.getElementById('name-input').value.trim();
+        const email = document.getElementById('email-input').value.trim();
+        if (!name) {
+          alert('Please enter your name.');
+          return false;
+        }
+        if (!email) {
+          alert('Please enter your email.');
+          return false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return false;
+        }
+        const phone = document.getElementById('phone-input').value.trim();
+        if (phone && !/^\+?\d{7,15}$/.test(phone)) {
+          alert('Please enter a valid phone number or leave it blank.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function submitForm() {
+      if (!validateStep(4)) return;
+      const data = {
+        category: document.getElementById('category-select').value,
+        lifeExperiences: Array.from(document.querySelectorAll('input[name="life-experiences"]:checked')).map(cb => cb.value),
+        spendTime: Array.from(document.querySelectorAll('input[name="spend-time"]:checked')).map(cb => cb.value),
+        name: document.getElementById('name-input').value.trim(),
+        email: document.getElementById('email-input').value.trim(),
+        phone: document.getElementById('phone-input').value.trim(),
+      };
+      console.log('Form data submitted:', data);
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('thankyou').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
