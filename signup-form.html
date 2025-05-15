@@ -4,302 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Weaverly – Join the Community</title>
+  <!-- Use unified fonts and shared stylesheet -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
   <style>
-    :root {
-      --brown: #a16a49;
-      --deep-brown: #7a5849;
-      --cream: #e7d7c1;
-      --beige: #c7b8aa;
-      --white: #fff;
-      --shadow: 0 4px 32px 0 rgba(161, 106, 73, 0.08);
-      --radius: 18px;
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Inter', Arial, sans-serif;
-    }
-    body {
-      margin: 0;
-      background: var(--cream);
-      font-family: var(--font-sans);
-      color: var(--deep-brown);
-      min-height: 100vh;
+    nav {
       display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: var(--cream);
-      padding: 2.5rem 0 1.2rem 0;
-      text-align: center;
-      border-bottom: 1.5px solid var(--beige);
-    }
-    header h1 {
-      color: var(--brown);
-      font-family: var(--font-serif);
-      font-size: 2.8rem;
-      letter-spacing: 0.03em;
-      margin: 0 0 0.2em 0;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.22rem;
-      color: var(--deep-brown);
-      margin: 0;
-      letter-spacing: 0.01em;
-    }
-    #form-container {
-      background: var(--white);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      margin: 2.5rem auto 1.5rem auto;
-      max-width: 430px;
-      width: 96%;
-      padding: 2.2rem 2rem 2.5rem 2rem;
-      min-height: 440px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .step {
-      display: none;
-      flex-direction: column;
-      gap: 1.5rem;
-      animation: fadeIn 0.4s;
-    }
-    .step.active {
-      display: flex;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    label {
-      font-size: 1.08rem;
-      font-weight: 600;
-      color: var(--deep-brown);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-    select, input[type="text"], input[type="email"] {
-      width: 100%;
-      font-size: 1.08rem;
-      padding: 0.85em 1em;
-      margin-top: 0.4em;
-      border: 1.5px solid var(--beige);
-      border-radius: 10px;
-      background: var(--cream);
-      color: var(--deep-brown);
-      box-sizing: border-box;
-      outline: none;
-      transition: border 0.2s, box-shadow 0.2s;
-    }
-    select:focus, input:focus {
-      border: 1.5px solid var(--brown);
-      box-shadow: 0 0 0 2px #a16a4922;
-    }
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8em;
-      margin-top: 0.6em;
-    }
-    .checkbox-group label {
-      font-weight: 400;
-      font-size: 1.05rem;
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.55em;
-      background: #f7f2ed;
-      border-radius: 8px;
-      padding: 0.55em 0.8em;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: border 0.2s;
+      padding: 1rem 2rem;
+      background: var(--blush, #f4e4e1);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 12px 0 rgba(185, 122, 122, 0.06);
+      backdrop-filter: blur(10px);
     }
-    .checkbox-group input[type="checkbox"] {
-      accent-color: var(--brown);
-      width: 1.1em;
-      height: 1.1em;
-      margin-right: 0.2em;
-    }
-    button {
-      background: var(--brown);
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: 1.13rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 9px;
-      padding: 0.82em 1.4em;
-      margin-top: 1.2em;
-      cursor: pointer;
-      box-shadow: 0 2px 8px 0 #a16a4912;
-      transition: background 0.18s, box-shadow 0.18s;
-    }
-    button:hover, button:focus {
-      background: var(--deep-brown);
-      box-shadow: 0 4px 16px 0 #a16a4922;
-    }
-    #thankyou {
-      display: none;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      margin: 2.5rem auto 2.5rem auto;
-      max-width: 430px;
-      width: 96%;
-      padding: 3.2rem 2rem 3rem 2rem;
-      text-align: center;
-      font-size: 1.35rem;
-      color: var(--brown);
+    .logo {
       font-family: var(--font-serif);
-      animation: fadeIn 0.6s;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rose);
+      letter-spacing: 0.03em;
     }
-    footer {
-      background: var(--beige);
-      color: var(--deep-brown);
-      border-top: 1.5px solid var(--cream);
-      padding: 2.2rem 0 1.8rem 0;
-      margin-top: auto;
-      font-size: 1.05rem;
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
     }
-    #contact-us, #stay-in-touch {
-      max-width: 430px;
-      margin: 0 auto 1.1rem auto;
-      text-align: center;
-    }
-    #contact-us a {
-      color: var(--brown);
-      text-decoration: underline dotted;
+    .nav-links a {
+      color: var(--rose);
       font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 1.07rem;
       transition: color 0.18s;
     }
-    #contact-us a:hover {
-      color: var(--deep-brown);
-    }
-    #stay-in-touch h3 {
-      font-family: var(--font-serif);
+    .nav-links a:hover {
       color: var(--brown);
-      font-size: 1.18rem;
-      margin-bottom: 0.3em;
-      margin-top: 0.5em;
-      font-weight: 700;
-    }
-    #stay-in-touch form {
-      margin-top: 0.5em;
-      display: flex;
-      gap: 0.5em;
-      justify-content: center;
-      align-items: center;
-    }
-    #stay-in-touch input[type="email"] {
-      width: 180px;
-      padding: 0.7em 0.9em;
-      font-size: 1.02rem;
-      border-radius: 8px;
-      border: 1.5px solid var(--brown);
-      background: var(--cream);
-      color: var(--deep-brown);
-      outline: none;
-      transition: border 0.2s;
-    }
-    #stay-in-touch input[type="email"]:focus {
-      border: 1.5px solid var(--deep-brown);
-    }
-    #stay-in-touch button[type="submit"] {
-      background: var(--brown);
-      color: var(--white);
-      font-size: 1.01rem;
-      border: none;
-      border-radius: 8px;
-      padding: 0.7em 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.18s;
-    }
-    #stay-in-touch button[type="submit"]:hover {
-      background: var(--deep-brown);
     }
     @media (max-width: 600px) {
-      #form-container, #thankyou, footer, #stay-in-touch, #contact-us {
-        padding-left: 0.5em !important;
-        padding-right: 0.5em !important;
+      nav {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.7rem 1rem;
       }
-      #form-container, #thankyou {
-        padding: 1.2rem 0.7rem 1.4rem 0.7rem;
-      }
-      footer {
-        padding: 1.2rem 0 1.2rem 0;
+      .nav-links {
+        gap: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Weaverly</h1>
+  <nav>
+    <div class="logo">Weaverly</div>
+    <div class="nav-links">
+      <a href="index.html#hero">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="signup-form.html">Join</a>
+    </div>
+  </nav>
+
+  <header style="margin-top: 5.5rem; text-align: center;">
+
     <p>Find your people, share your stories, and make meaningful connections.</p>
   </header>
 
-  <div id="form-container">
-    <!-- Step 1 -->
-    <div class="step active" id="step1">
-      <label for="category-select">Which life stage best describes you?</label>
-      <select id="category-select" required>
-        <option value="">Select...</option>
-        <option value="student">Student</option>
-        <option value="working-professional">Working Professional</option>
-        <option value="parent">Parent</option>
-        <option value="retired">Retired</option>
-        <option value="other">Other</option>
-      </select>
-      <button onclick="goToNext()">Next ➡️</button>
-    </div>
 
-    <!-- Step 2 -->
-    <div class="step" id="step2">
-      <label>What life experiences would you like to share or discuss?</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="life-experiences" value="career"> Career journeys 💼</label>
-        <label><input type="checkbox" name="life-experiences" value="parenting"> Parenting 🧸</label>
-        <label><input type="checkbox" name="life-experiences" value="moving-cities"> Moving cities 🌏</label>
-        <label><input type="checkbox" name="life-experiences" value="relationships"> Relationships 💬</label>
-        <label><input type="checkbox" name="life-experiences" value="self-discovery"> Self-discovery 🌱</label>
-        <label><input type="checkbox" name="life-experiences" value="other"> Other</label>
+  <main>
+    <div id="form-container" class="container">
+      <form id="multiStepForm" novalidate>
+        <!-- Step 1 -->
+        <fieldset class="step active" id="step1">
+          <legend>Which life stage best describes you?</legend>
+          <select id="category-select" name="category" required>
+            <option value="">Select...</option>
+            <option value="student">Student</option>
+            <option value="working-professional">Working Professional</option>
+            <option value="parent">Parent</option>
+            <option value="retired">Retired</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="buttons">
+            <button type="button" class="next-btn" disabled>Next ➡️</button>
+          </div>
+        </fieldset>
+  
+        <!-- Step 2 -->
+        <fieldset class="step" id="step2">
+          <legend>What life experiences would you like to share or discuss? (Select all that apply)</legend>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="life-experiences" value="career"> Career journeys 💼</label>
+            <label><input type="checkbox" name="life-experiences" value="parenting"> Parenting 🧸</label>
+            <label><input type="checkbox" name="life-experiences" value="moving-cities"> Moving cities 🌏</label>
+            <label><input type="checkbox" name="life-experiences" value="relationships"> Relationships 💬</label>
+            <label><input type="checkbox" name="life-experiences" value="self-discovery"> Self-discovery 🌱</label>
+            <label><input type="checkbox" name="life-experiences" value="other"> Other</label>
+          </div>
+          <div class="buttons">
+            <button type="button" class="back-btn">⬅️ Back</button>
+            <button type="button" class="next-btn">Next ➡️</button>
+          </div>
+        </fieldset>
+  
+        <!-- Step 3 -->
+        <fieldset class="step" id="step3">
+          <legend>How do you like to spend time with new friends? (Select all that apply)</legend>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="spend-time" value="exploring"> Exploring 🛍️🗺️</label>
+            <label><input type="checkbox" name="spend-time" value="walk-coffee"> Walk + coffee ☕🚶‍♀️</label>
+            <label><input type="checkbox" name="spend-time" value="night-dinner"> Night out + dinner 🍽️🎶</label>
+            <label><input type="checkbox" name="spend-time" value="book-discussion"> Book discussions 📚</label>
+            <label><input type="checkbox" name="spend-time" value="movie-night"> Movie night 🎥</label>
+          </div>
+          <div class="buttons">
+            <button type="button" class="back-btn">⬅️ Back</button>
+            <button type="button" class="next-btn">Next ➡️</button>
+          </div>
+        </fieldset>
+  
+        <!-- Step 4 -->
+        <fieldset class="step" id="step4">
+          <legend>Your details</legend>
+          <label for="name-input">Your name 👋</label>
+          <input type="text" id="name-input" name="name" placeholder="First name" required />
+  
+          <label for="email-input">Your email 📧</label>
+          <input type="email" id="email-input" name="email" placeholder="you@example.com" required />
+  
+          <label for="phone-input">Your phone number 📱 (optional)</label>
+          <input type="text" id="phone-input" name="phone" placeholder="+91 98765 43210" pattern="^\+?\d{7,15}$" />
+  
+          <div class="buttons">
+            <button type="button" class="back-btn">⬅️ Back</button>
+            <button type="submit" id="submitBtn" disabled>Join Weaverly</button>
+          </div>
+        </fieldset>
+      </form>
+  
+      <div id="thankyou" style="display:none; margin-top: 2rem; font-family: var(--font-serif); font-size: 1.3rem; color: var(--rose); text-align: center;">
+        Thanks for signing up! We’ll be in touch soon. 💛
       </div>
-      <button onclick="goToNext()">Next ➡️</button>
     </div>
+  </main>
+    
 
-    <!-- Step 3 -->
-    <div class="step" id="step3">
-      <label>How do you like to spend time with new friends?</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="spend-time" value="exploring"> Exploring 🛍️🗺️</label>
-        <label><input type="checkbox" name="spend-time" value="walk-coffee"> Walk + coffee ☕🚶‍♀️</label>
-        <label><input type="checkbox" name="spend-time" value="night-dinner"> Night out + dinner 🍽️🎶</label>
-        <label><input type="checkbox" name="spend-time" value="book-discussion"> Book discussions 📚</label>
-        <label><input type="checkbox" name="spend-time" value="movie-night"> Movie night 🎥</label>
-      </div>
-      <button onclick="goToNext()">Next ➡️</button>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="step" id="step4">
-      <label for="name-input">Your name 👋</label>
-      <input type="text" id="name-input" placeholder="First name" required />
-
-      <label for="email-input">Your email 📧</label>
-      <input type="email" id="email-input" placeholder="you@example.com" required />
-
-      <label for="phone-input">Your phone number 📱 (optional)</label>
-      <input type="text" id="phone-input" placeholder="+91 98765 43210" pattern="^\+?\d{7,15}$" />
-
-      <button onclick="submitForm()">Join Weaverly</button>
-    </div>
-  </div>
-
-  <!-- Thank you message -->
-  <div id="thankyou">
-    Thanks for signing up! We’ll be in touch soon. 💛
-  </div>
 
   <footer>
     <div id="contact-us">
@@ -374,5 +223,119 @@
       document.getElementById('thankyou').style.display = 'block';
     }
   </script>
+
+  <script>
+    (function() {
+      const form = document.getElementById('multiStepForm');
+      const steps = Array.from(form.querySelectorAll('.step'));
+      let currentStep = 0;
+
+      const nextBtns = form.querySelectorAll('.next-btn');
+      const backBtns = form.querySelectorAll('.back-btn');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Enable/disable Next button on Step 1 based on select validity
+      const categorySelect = document.getElementById('category-select');
+      const step1NextBtn = steps[0].querySelector('.next-btn');
+
+      function updateStep1NextBtn() {
+        step1NextBtn.disabled = !categorySelect.value;
+      }
+      categorySelect.addEventListener('change', updateStep1NextBtn);
+      updateStep1NextBtn();
+
+      // Enable submit button only if required inputs are valid on Step 4
+      const nameInput = document.getElementById('name-input');
+      const emailInput = document.getElementById('email-input');
+      const phoneInput = document.getElementById('phone-input');
+
+      function validateStep4() {
+        const nameValid = nameInput.value.trim() !== '';
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+        const phoneVal = phoneInput.value.trim();
+        const phoneValid = phoneVal === '' || /^\+?\d{7,15}$/.test(phoneVal);
+        submitBtn.disabled = !(nameValid && emailValid && phoneValid);
+      }
+      nameInput.addEventListener('input', validateStep4);
+      emailInput.addEventListener('input', validateStep4);
+      phoneInput.addEventListener('input', validateStep4);
+      validateStep4();
+
+      // Show step by index
+      function showStep(index) {
+        steps.forEach((step, i) => {
+          step.classList.toggle('active', i === index);
+        });
+        currentStep = index;
+        // Scroll to top of form container for better UX
+        document.getElementById('form-container').scrollIntoView({behavior: 'smooth'});
+      }
+
+      // Next button handlers
+      nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!validateCurrentStep()) return;
+          if (currentStep < steps.length - 1) {
+            showStep(currentStep + 1);
+          }
+        });
+      });
+
+      // Back button handlers
+      backBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentStep > 0) {
+            showStep(currentStep - 1);
+          }
+        });
+      });
+
+      // Validation per step
+      function validateCurrentStep() {
+        const step = steps[currentStep];
+        if (currentStep === 0) {
+          if (!categorySelect.value) {
+            alert('Please select a life stage.');
+            return false;
+          }
+        }
+        if (currentStep === steps.length - 1) {
+          // Step 4 validation handled by submit button disabling
+          if (submitBtn.disabled) {
+            alert('Please fill out your name and a valid email.');
+            return false;
+          }
+        }
+        return true;
+      }
+
+      // Form submit handler
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!validateCurrentStep()) return;
+
+        // Gather form data
+        const data = {
+          category: categorySelect.value,
+          lifeExperiences: Array.from(form.querySelectorAll('input[name="life-experiences"]:checked')).map(cb => cb.value),
+          spendTime: Array.from(form.querySelectorAll('input[name="spend-time"]:checked')).map(cb => cb.value),
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          phone: phoneInput.value.trim(),
+        };
+        console.log('Form data submitted:', data);
+
+        // Show thank you message and hide form
+        form.style.display = 'none';
+        document.getElementById('thankyou').style.display = 'block';
+      });
+
+      // Initialize
+      showStep(0);
+    })();
+  </script>
+
+
+
 </body>
 </html>

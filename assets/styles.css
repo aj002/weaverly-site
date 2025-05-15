@@ -1,0 +1,187 @@
+:root {
+    --rose: #7c4d4d;          /* deeper, more muted rose */
+    --beige: #f7f5f2;         /* softer, off-white beige */
+    --white: #ffffff;
+    --soft-brown: #4a3f3f;    /* darker and more elegant brown */
+    --soft-blush: #e9e4e0;    /* subtle blush */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;  /* Inter is cleaner and more modern than Lato */
+    --radius: 10px;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  }
+  
+body {
+  font-family: var(--font-sans);
+  background-color: var(--beige);
+  color: var(--soft-brown);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: var(--soft-brown);
+  font-family: var(--font-serif);
+}
+
+section.about-content {
+  max-width: 760px;
+  background-color: var(--white);
+  margin: 3rem auto;
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  line-height: 1.75;
+}
+
+.founders-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1rem 2rem 1rem 0;
+  float: left;
+}
+
+@media (max-width: 600px) {
+  .founders-photo {
+    display: block;
+    float: none;
+    margin: 0 auto 1rem auto;
+  }
+}
+
+  
+  body {
+    margin: 0;
+    background: var(--beige);
+    font-family: var(--font-sans);
+    color: var(--brown);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--blush);
+    padding: 2.5rem 0 1.2rem 0;
+    text-align: center;
+    border-bottom: 1.5px solid var(--rose);
+  }
+  header h1 {
+    color: var(--rose);
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 0.2em 0;
+    font-weight: 700;
+  }
+  header p {
+    font-size: 1.22rem;
+    color: var(--brown);
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+  main, .container {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    margin: 2.5rem auto 1.5rem auto;
+    max-width: 500px;
+    width: 96%;
+    padding: 2.2rem 2rem 2.5rem 2rem;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  h2, h3 {
+    color: var(--rose);
+    font-family: var(--font-serif);
+  }
+  a {
+    color: var(--rose);
+    text-decoration: underline dotted;
+    font-weight: 500;
+    transition: color 0.18s;
+  }
+  a:hover {
+    color: var(--brown);
+  }
+  button, input[type="submit"] {
+    background: var(--rose);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 1.13rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 9px;
+    padding: 0.82em 1.4em;
+    margin-top: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 #b97a7a12;
+    transition: background 0.18s, box-shadow 0.18s;
+  }
+  button:hover, button:focus, input[type="submit"]:hover {
+    background: var(--brown);
+    box-shadow: 0 4px 16px 0 #b97a7a22;
+  }
+  input, select, textarea {
+    width: 100%;
+    font-size: 1.08rem;
+    padding: 0.85em 1em;
+    margin-top: 0.4em;
+    border: 1.5px solid var(--taupe);
+    border-radius: 10px;
+    background: var(--blush);
+    color: var(--brown);
+    box-sizing: border-box;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
+    border: 1.5px solid var(--rose);
+    box-shadow: 0 0 0 2px #b97a7a22;
+  }
+  footer {
+    background: var(--blush);
+    color: var(--brown);
+    border-top: 1.5px solid var(--rose);
+    padding: 2.2rem 0 1.8rem 0;
+    margin-top: auto;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    main, .container, footer, header {
+      padding-left: 0.5em !important;
+      padding-right: 0.5em !important;
+    }
+    main, .container {
+      padding: 1.2rem 0.7rem 1.4rem 0.7rem;
+    }
+    footer {
+      padding: 1.2rem 0 1.2rem 0;
+    }
+  }
+  .step {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .step.active {
+    display: flex;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  .buttons button {
+    min-width: 100px;
+  }
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+  }
+  

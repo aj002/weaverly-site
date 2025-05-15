@@ -4,82 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us – Weaverly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
   <style>
-    /* Include all the same CSS from index.html */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --rose: #c97865;
+      --blush: #f4dfd3;
+      --beige: #f2ebe6;
+      --taupe: #9d8576;
+      --brown: #5e4436;
+      --white: #fff;
+      --shadow: 0 4px 32px 0 rgba(201, 120, 101, 0.08);
+      --radius: 18px;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Inter', Arial, sans-serif;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+
     body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #F9F7F1;
-      color: #5A4C3C;
-      line-height: 1.6;
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--beige);
+      color: var(--brown);
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: rgba(255, 255, 255, 0.9);
+      background: var(--blush);
       position: fixed;
       width: 100%;
       z-index: 1000;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 12px rgba(185, 122, 122, 0.06);
       backdrop-filter: blur(10px);
     }
+
     .logo {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
+      font-family: var(--font-serif);
+      font-size: 2rem;
       font-weight: 700;
-      color: #D08556;
+      color: var(--rose);
+      letter-spacing: 0.03em;
     }
+
     .nav-links {
       display: flex;
       gap: 1.5rem;
     }
+
     .nav-links a {
-      color: #D08556;
+      color: var(--rose);
       font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 1.07rem;
+      transition: color 0.18s;
     }
+
     .nav-links a:hover {
-      color: #A67F60;
+      color: var(--brown);
     }
 
     header {
-      padding-top: 6rem;
+      padding-top: 6.5rem;
       text-align: center;
-      background-color: #FDFBF8;
+      background: var(--beige);
       padding-bottom: 2rem;
     }
+
     header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      color: #D08556;
-      margin-bottom: 1rem;
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      color: var(--rose);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
     }
 
     section.about-content {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 720px;
+      margin: 2.5rem auto;
+      padding: 3rem 2.2rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
+
     section.about-content p {
-      font-size: 1.1rem;
-      color: #5A4C3C;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
+      font-size: 1.17rem;
+      line-height: 1.85;
+      margin-bottom: 1.8rem;
     }
 
     .founders-photo {
@@ -87,39 +102,69 @@
       margin-right: 2rem;
       margin-bottom: 1.5rem;
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
+      box-shadow: 0 2px 12px rgba(185, 122, 122, 0.08);
+      border: 3px solid var(--blush);
+    }
+
+    .section-divider {
+      margin: 2rem 0;
+      border-top: 1px solid var(--blush);
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: var(--taupe);
+      border-left: 4px solid var(--rose);
+      padding-left: 1rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.7rem 1rem;
+      }
+
+      .founders-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 1.2rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
     }
 
     footer {
-      background-color: #F1E0C6;
+      background: var(--blush);
+      color: var(--brown);
+      border-top: 1.5px solid var(--rose);
+      padding: 2.2rem 0 1.8rem 0;
+      font-size: 1.05rem;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #D08556;
-    }
-    footer a:hover {
-      color: #A67F60;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      section.about-content {
-        padding: 1.5rem;
-      }
-      .founders-photo {
-        width: 180px;
-        height: 180px;
-        margin-right: 1.5rem;
-      }
+    footer a {
+      color: var(--rose);
+      text-decoration: underline dotted;
+      font-weight: 500;
+      transition: color 0.18s;
+    }
+
+    footer a:hover {
+      color: var(--brown);
     }
   </style>
 </head>
@@ -130,33 +175,37 @@
   <div class="nav-links">
     <a href="index.html#hero">Home</a>
     <a href="about.html">About Us</a>
-    <a href="index.html#join">Join</a>
+    <a href="signup-form.html">Join</a>
   </div>
 </nav>
 
 <header>
-  <!-- Header content can be added here if needed -->
+  <h1>About Us</h1>
 </header>
 
 <section class="about-content">
+  <p><strong>Welcome to Weaverly.</strong></p>
+  
   <p>
-    🌸 <strong>Welcome to Weaverly!</strong> 🌸
+    We believe every woman deserves a space to be seen, heard, and deeply understood. Whether you're entering a new phase of life, building community in a new city, or simply seeking meaningful conversation, Weaverly is a place where real connection begins.
   </p>
+
   <p>
-    We believe that every woman deserves a space where she can truly <strong><em>connect</em></strong> with others who understand her, where real friendships blossom. Whether you're navigating a new chapter in life, settling into a new city, or simply searching for <strong>deeper connections</strong>, Weaverly is here to support you every step of the way. 💕
+    Our gatherings are thoughtfully curated to move beyond small talk. With guided dialogue, shared experiences, and intentional design, we create spaces that feel both grounding and expansive—spaces where belonging comes naturally.
   </p>
+
+  <div class="founder-section">
+    <img src="assets/founders.jpg" class="founders-photo" alt="Founders Ananya and Aastha">
+    <p>
+      We’re <strong>Ananya</strong> and <strong>Aastha</strong>, lifelong friends who created Weaverly out of a shared belief: that friendship in adulthood should feel as effortless and authentic as it did when we were young. We know the joy of being truly known—and we want to help you find that too.
+    </p>
+  </div>
+
   <p>
-    Our gatherings are intentionally designed to go beyond surface-level conversations. At Weaverly, we create an environment where every voice is valued, and meaningful conversations can thrive. With every meetup, we hope to create an experience that feels like home. 🏡✨
-  </p>
-  <p>
-<img src="images/founders.jpg" class="founders-photo">
-    We are </em>Ananya and Aastha</em>, childhood friends, who created Weaverly with love, empathy, and a deep belief in the power of connection. We know how important it is to have people who *really* get you, and that’s what we aim to provide—spaces where you can share, learn, and grow, surrounded by women who understand. 
-   
-  </p>
-  <p>
-    We want you to feel like you belong here. <strong><em>Come as you are</em></strong>, and leave with friendships that could last a lifetime. 🌟
+    Come as you are. Stay for the stories, the laughter, the tears—and leave with something lasting.
   </p>
 </section>
+
 
 <footer>
   &copy; 2025 Weaverly. All rights reserved. | <a href="mailto:weaverlygals@gmail.com">weaverlygals@gmail.com</a>

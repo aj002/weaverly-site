@@ -4,77 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Weaverly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;700&display=swap" rel="stylesheet"/>
+  <!-- Unified Google Fonts and shared stylesheet -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #F9F7F1;
-      color: #5A4C3C;
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
+    /* Minimal custom styles for nav/hero positioning */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: rgba(255, 255, 255, 0.9);
+      background: var(--blush, #f4e4e1);
       position: fixed;
       width: 100%;
       z-index: 1000;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 12px 0 rgba(185, 122, 122, 0.06);
       backdrop-filter: blur(10px);
     }
     .logo {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
+      font-family: var(--font-serif);
+      font-size: 2rem;
       font-weight: 700;
-      color: #D08556;
+      color: var(--rose);
+      letter-spacing: 0.03em;
     }
     .nav-links {
       display: flex;
       gap: 1.5rem;
     }
     .nav-links a {
-      color: #D08556;
+      color: var(--rose);
       font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 1.07rem;
+      transition: color 0.18s;
     }
     .nav-links a:hover {
-      color: #A67F60;
+      color: var(--brown);
     }
-
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 80vh;
       text-align: center;
       position: relative;
       overflow: hidden;
-      background-image: url('https://via.placeholder.com/1200x800');
+      background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
+      margin-top: 65px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(255, 235, 230, 0.7), rgba(255, 255, 255, 0.7));
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(244,228,225,0.7), rgba(255,255,255,0.8));
       z-index: 1;
     }
     .hero-content {
@@ -93,165 +83,100 @@
       }
     }
     .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3rem;
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #D08556;
+      color: var(--rose);
     }
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #B17A55;
+      color: var(--brown);
+      font-family: var(--font-sans);
     }
     .btn {
       display: inline-block;
-      background-color: #D08556;
-      color: #fff;
+      background-color: var(--rose);
+      color: var(--white);
       padding: 0.75rem 1.5rem;
       border-radius: 25px;
       font-weight: bold;
+      font-family: var(--font-sans);
+      font-size: 1.09rem;
+      border: none;
       transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 2px 8px 0 #b97a7a12;
+      margin-bottom: 0.5rem;
     }
     .btn:hover {
-      background-color: #A67F60;
+      background-color: var(--brown);
       transform: scale(1.05);
     }
     .btn-transparent {
       background-color: transparent;
-      border: 2px solid #D08556;
-      color: #D08556;
+      border: 2px solid var(--rose);
+      color: var(--rose);
     }
     .btn-transparent:hover {
-      background-color: #D08556;
-      color: #fff;
+      background-color: var(--rose);
+      color: var(--white);
     }
-
-    #how {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4rem 2rem;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    #how h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #A67F60;
-    }
-    .step {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 3rem;
-      width: 100%;
-      max-width: 900px;
-      padding: 1.5rem;
-      border-radius: 8px;
-      background-color: #F9F7F1;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-    .step.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .step-icon {
-      font-size: 3rem;
-      color: #D08556;
-      margin-right: 1.5rem;
-    }
-    .step-content {
-      flex: 1;
-    }
-    .step h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #5A4C3C;
-    }
-    .step p {
-      font-size: 1.1rem;
-      color: #5A4C3C;
-    }
-    .step img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-left: 1.5rem;
-    }
-
-    #about {
-      padding: 4rem 2rem;
-      background-color: #FDFBF8;
-    }
-    #about h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #A67F60;
-      text-align: center;
-    }
-    #about p {
-      max-width: 900px;
-      margin: 0 auto 1.5rem;
-      font-size: 1.1rem;
-      color: #5A4C3C;
-      line-height: 1.8;
-    }
-
-    #join {
-      padding: 4rem 2rem;
-      background-color: #fff;
-      text-align: center;
-    }
-    #join h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #D08556;
-    }
-    #join p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #5A4C3C;
-    }
-
-    .join-button {
-      margin-top: 1rem;
-    }
-
-    footer {
-      background-color: #F1E0C6;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #D08556;
-    }
-    footer a:hover {
-      color: #A67F60;
-    }
-
     @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.7rem 1rem;
+      }
       .nav-links {
-        display: none;
+        gap: 0.9rem;
       }
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
       }
-      .step {
-        flex-direction: column;
-        text-align: center;
+      .hero-content {
+        padding: 1rem;
       }
-      .step img {
-        margin: 1rem auto 0;
-      }
+    }
+    /* Section spacing */
+    section {
+      margin: 2.5rem auto;
+      max-width: 900px;
+      width: 96%;
+    }
+    #stay-in-touch form {
+      display: flex;
+      gap: 0.5em;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
+    }
+    #stay-in-touch input[type="email"] {
+      width: 200px;
+      padding: 0.7em 0.9em;
+      font-size: 1.02rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--rose);
+      background: var(--blush);
+      color: var(--brown);
+      outline: none;
+      transition: border 0.2s;
+    }
+    #stay-in-touch input[type="email"]:focus {
+      border: 1.5px solid var(--brown);
+    }
+    #stay-in-touch button[type="submit"] {
+      background: var(--rose);
+      color: var(--white);
+      font-size: 1.01rem;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7em 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    #stay-in-touch button[type="submit"]:hover {
+      background: var(--brown);
     }
   </style>
 </head>
@@ -269,10 +194,8 @@
 <header class="hero" id="hero">
   <div class="hero-content">
     <h1>Real friendships. Real conversations.</h1>
-<p><i>Weaving real friendships, one conversation at a time.</i><br>
-Curated small, in-person meetups for women to connect meaningfully with others in their life stage.</p>
-
-
+    <p><i>Weaving real friendships, one conversation at a time.</i><br>
+    Curated small, in-person meetups for women to connect meaningfully with others in their life stage.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
       <a href="signup-form.html" class="btn">Join a Meetup</a>
       <a href="#how" class="btn btn-transparent">How It Works</a>
@@ -280,57 +203,53 @@ Curated small, in-person meetups for women to connect meaningfully with others i
   </div>
 </header>
 
-<section id="how">
-  <h2>How It Works</h2>
+<main>
+  <section id="how">
+    <h2>How It Works</h2>
+    <div class="step">
+      <div class="step-icon">👋</div>
+      <div class="step-content">
+        <h3><strong>Tell Us About Yourself</strong></h3>
+        <p>Help us get to know you better! Share your <strong>interests</strong>, <strong>life stage</strong>, and what you're looking for in a meaningful connection. <em>The more we know</em>, the better we can match you with people who truly align with your journey. It’s the first step towards finding <strong>authentic connections</strong> that matter!</p>
+      </div>
+      <img src="assets/tell-us-about-yourself.png" alt="Tell Us About Yourself" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
+    </div>
+    <div class="step">
+      <div class="step-icon">🤝</div>
+      <div class="step-content">
+        <h3><strong>Meet Your Matches</strong></h3>
+        <p>You'll be introduced to a small, intimate group of <strong>3-5 like-minded women</strong> who share your interests and life stage. A trained <strong>host</strong> will guide the conversation, ensuring everyone feels comfortable and engaged. This creates a warm, supportive space where you can connect on a deeper level and build <strong>authentic friendships</strong> with women who truly understand your journey.</p>
+      </div>
+      <img src="assets/meet-your-matches.png" alt="Meet Your Matches" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
+    </div>
+    <div class="step">
+      <div class="step-icon">🔄</div>
+      <div class="step-content">
+        <h3><strong>Sign Up for Recurring Meetups</strong></h3>
+        <p>Loved your group? Keep the connections alive by signing up for a <strong>6-week series</strong> of recurring meetups! After your first experience, if you're excited to continue, just <strong>sign up</strong>. We’ll take care of everything – you just show up and enjoy the ongoing <strong><em>support</em></strong> and <strong><em>camaraderie</em></strong>. It's a simple way to nurture meaningful friendships and stay connected with your group.</p>
+      </div>
+      <img src="assets/sign-up-recurring-meetups.png" alt="Sign Up for Recurring Meetups" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
+    </div>
+  </section>
 
-<div class="step">
-  <div class="step-icon">👋</div>
-  <div class="step-content">
-    <h3><strong>Tell Us About Yourself</strong></h3>
-    <p>Help us get to know you better! Share your <strong>interests</strong>, <strong>life stage</strong>, and what you're looking for in a meaningful connection. <em>The more we know</em>, the better we can match you with people who truly align with your journey. It’s the first step towards finding <strong>authentic connections</strong> that matter!</p>
-  </div>
-  <img src="images/tell-us-about-yourself.png" alt="Tell Us About Yourself" />
-</div>
-
-<div class="step">
-  <div class="step-icon">🤝</div>
-  <div class="step-content">
-    <h3><strong>Meet Your Matches</strong></h3>
-    <p>You'll be introduced to a small, intimate group of <strong>3-5 like-minded women</strong> who share your interests and life stage. A trained <strong>host</strong> will guide the conversation, ensuring everyone feels comfortable and engaged. This creates a warm, supportive space where you can connect on a deeper level and build <strong>authentic friendships</strong> with women who truly understand your journey.</p>
-  </div>
-  <img src="images/meet-your-matches.png" alt="Meet Your Matches" />
-</div>
-
-<div class="step">
-  <div class="step-icon">🔄</div>
-  <div class="step-content">
-    <h3><strong>Sign Up for Recurring Meetups</strong></h3>
-    <p>Loved your group? Keep the connections alive by signing up for a <strong>6-week series</strong> of recurring meetups! After your first experience, if you're excited to continue, just <strong>sign up</strong>. We’ll take care of everything – you just show up and enjoy the ongoing <strong><em>support</em></strong> and <strong><em>camaraderie</em></strong>. It's a simple way to nurture meaningful friendships and stay connected with your group.</p>
-  </div>
-  <img src="images/sign-up-recurring-meetups.png" alt="Sign Up for Recurring Meetups" />
-</div>
-
-
-</section>
-
-
-
-<section id="stay-in-touch">
+  <section id="stay-in-touch">
     <h2>Stay in touch</h2>
     <p>Not ready to commit, but want to stay in touch? Sign up for our mailing list and we'll keep you updated on new city launches, series dates, and more.</p>
-    <form>
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
+    <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
     </form>
-</section>
-
-
+  </section>
+</main>
 
 <footer>
-  <p>&copy; 2025 Weaverly. Made with ❤️ for real friendships. <br><a href="#hero">Back to top</a></p>
+  <p>&copy; 2025 Weaverly. Made with ❤️ for real friendships.<br>
+    <a href="#hero">Back to top</a>
+  </p>
 </footer>
 
 <script>
+  // Animate steps on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -340,7 +259,6 @@ Curated small, in-person meetups for women to connect meaningfully with others i
   }, {
     threshold: 0.2
   });
-
   document.querySelectorAll('.step').forEach(step => {
     observer.observe(step);
   });
