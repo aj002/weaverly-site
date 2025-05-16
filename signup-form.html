@@ -7,53 +7,6 @@
   <!-- Use unified fonts and shared stylesheet -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
-  <style>
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: var(--blush, #f4e4e1);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      box-shadow: 0 2px 12px 0 rgba(185, 122, 122, 0.06);
-      backdrop-filter: blur(10px);
-    }
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--rose);
-      letter-spacing: 0.03em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      color: var(--rose);
-      font-weight: 600;
-      font-family: var(--font-sans);
-      font-size: 1.07rem;
-      transition: color 0.18s;
-    }
-    .nav-links a:hover {
-      color: var(--brown);
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 0.7rem;
-        padding: 0.7rem 1rem;
-      }
-      .nav-links {
-        gap: 0.9rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <nav>
