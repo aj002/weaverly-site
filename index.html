@@ -2,96 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weaverly</title>
-  <!-- Unified Google Fonts and shared stylesheet -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
-
 </head>
 <body>
 
-<nav>
-  <div class="logo">Weaverly</div>
-  <div class="nav-links">
-    <a href="#hero">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-<header class="hero" id="hero">
-  <div class="hero-content">
-    <h1>Real friendships. Real conversations.</h1>
-    <p><i>Weaving real friendships, one conversation at a time.</i><br>
-    Curated small, in-person meetups for women to connect meaningfully with others in their life stage.</p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="signup-form.html" class="btn">Join a Meetup</a>
-      <a href="#how" class="btn btn-transparent">How It Works</a>
+  <nav>
+    <div class="logo">Weaverly</div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </div>
-</header>
+  </nav>
 
-<main>
-  <section id="how">
-    <h2>How It Works</h2>
-    <div class="step">
-      <div class="step-icon">👋</div>
-      <div class="step-content">
-        <h3><strong>Tell Us About Yourself</strong></h3>
-        <p>Help us get to know you better! Share your <strong>interests</strong>, <strong>life stage</strong>, and what you're looking for in a meaningful connection. <em>The more we know</em>, the better we can match you with people who truly align with your journey. It’s the first step towards finding <strong>authentic connections</strong> that matter!</p>
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Real friendships. Real conversations.</h1>
+      <p><i>Weaving real friendships, one conversation at a time.</i><br>
+        Curated small, in-person meetups for women to connect meaningfully with others in their life stage.
+      </p>
+      <div class="hero-buttons">
+        <a href="signup-form.html" class="btn">Join a Meetup</a>
+        <a href="#how" class="btn btn-transparent">How It Works</a>
       </div>
-      <img src="assets/tell-us-about-yourself.png" alt="Tell Us About Yourself" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
     </div>
-    <div class="step">
-      <div class="step-icon">🤝</div>
-      <div class="step-content">
-        <h3><strong>Meet Your Matches</strong></h3>
-        <p>You'll be introduced to a small, intimate group of <strong>3-5 like-minded women</strong> who share your interests and life stage. A trained <strong>host</strong> will guide the conversation, ensuring everyone feels comfortable and engaged. This creates a warm, supportive space where you can connect on a deeper level and build <strong>authentic friendships</strong> with women who truly understand your journey.</p>
+  </header>
+
+  <main>
+    <section id="how">
+      <h2 class="section-title">How It Works</h2>
+    
+      <div class="step">
+        <div class="step-content">
+          <h3><strong>👋 Tell Us About Yourself</strong></h3>
+          <p>Share your <strong>interests</strong>, <strong>life stage</strong>, and what you’re looking for in a connection. The more we know, the better we can match you with people who truly align with your journey.</p>
+        </div>
       </div>
-      <img src="assets/meet-your-matches.png" alt="Meet Your Matches" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
-    </div>
-    <div class="step">
-      <div class="step-icon">🔄</div>
-      <div class="step-content">
-        <h3><strong>Sign Up for Recurring Meetups</strong></h3>
-        <p>Loved your group? Keep the connections alive by signing up for a <strong>6-week series</strong> of recurring meetups! After your first experience, if you're excited to continue, just <strong>sign up</strong>. We’ll take care of everything – you just show up and enjoy the ongoing <strong><em>support</em></strong> and <strong><em>camaraderie</em></strong>. It's a simple way to nurture meaningful friendships and stay connected with your group.</p>
+    
+      <div class="step">
+        <div class="step-content">
+          <h3><strong>🤝 Meet Your Matches</strong></h3>
+          <p>You’ll be introduced to a small group of <strong>3–5 like-minded women</strong>. A trained <strong>host</strong> will guide a warm, engaging conversation.</p>
+        </div>
       </div>
-      <img src="assets/sign-up-recurring-meetups.png" alt="Sign Up for Recurring Meetups" style="width:80px; height:80px; border-radius:50%; margin-left:1.5rem;">
-    </div>
-  </section>
+    
+      <div class="step">
+        <div class="step-content">
+          <h3><strong>🔄 Sign Up for Recurring Meetups</strong></h3>
+          <p>Loved your group? Continue with a <strong>6-week series</strong> of recurring meetups. We handle the logistics — you just show up and enjoy!</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="stay-in-touch" class="newsletter">
+      <h2>Stay in Touch</h2>
+      <p>Not ready to commit, but want to stay in touch?<br>
+         Sign up for our mailing list and we'll keep you updated on new city launches, series dates, and more.
+      </p>
+      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
 
-  <section id="stay-in-touch">
-    <h2>Stay in touch</h2>
-    <p>Not ready to commit, but want to stay in touch? Sign up for our mailing list and we'll keep you updated on new city launches, series dates, and more.</p>
-    <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-</main>
+  <footer>
+    <p>&copy; 2025 Weaverly. Made with ❤️ for real friendships.<br>
+      <a href="#hero">Back to top</a>
+    </p>
+  </footer>
 
-<footer>
-  <p>&copy; 2025 Weaverly. Made with ❤️ for real friendships.<br>
-    <a href="#hero">Back to top</a>
-  </p>
-</footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
 
-<script>
-  // Animate steps on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+    document.querySelectorAll('.step').forEach(step => {
+      observer.observe(step);
     });
-  }, {
-    threshold: 0.2
-  });
-  document.querySelectorAll('.step').forEach(step => {
-    observer.observe(step);
-  });
-</script>
+  </script>
 
 </body>
 </html>
