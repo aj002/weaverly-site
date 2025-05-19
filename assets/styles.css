@@ -1,4 +1,5 @@
 /* assets/styles.css */
+
 :root {
     --rose: #7c4d4d;
     --blush: #e9e4e0;
@@ -22,6 +23,14 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    line-height: 1.6;
+  }
+  
+  /* Typography */
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--rose);
+    margin-top: 0;
   }
   
   /* Header */
@@ -34,11 +43,9 @@
   
   header h1 {
     font-size: 2.8rem;
-    font-family: var(--font-serif);
     font-weight: 700;
     letter-spacing: 0.03em;
-    color: var(--rose);
-    margin: 0 0 0.2em;
+    margin-bottom: 0.2em;
   }
   
   header p {
@@ -48,7 +55,54 @@
     letter-spacing: 0.01em;
   }
   
-  /* Hero */
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--blush);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 12px rgba(185, 122, 122, 0.06);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+  }
+  
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--rose);
+    letter-spacing: 0.03em;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--rose);
+    font-weight: 600;
+    font-size: 1.07rem;
+    font-family: var(--font-sans);
+    text-decoration: none;
+    padding: 0 12px;
+    white-space: nowrap;
+    display: inline-block;
+    transition: color 0.18s;
+  }
+  
+  .nav-links a:hover {
+    color: var(--brown);
+  }
+  
+  /* Hero Section */
   .hero {
     display: flex;
     flex-direction: column;
@@ -56,7 +110,7 @@
     justify-content: center;
     min-height: 80vh;
     text-align: center;
-    background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');
+    background-image: url('/assets/group-illustration.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 65px;
@@ -92,10 +146,10 @@
   }
   
   .hero h1 {
-    font-family: var(--font-serif);
     font-size: 2.5rem;
     color: var(--rose);
     margin-bottom: 1rem;
+    font-family: var(--font-serif);
   }
   
   .hero p {
@@ -104,65 +158,18 @@
     margin-bottom: 2rem;
   }
   
-  /* Navigation */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--blush);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    box-shadow: 0 2px 12px rgba(185, 122, 122, 0.06);
-    backdrop-filter: blur(10px);
-  }
-  
-  .logo {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--rose);
-    letter-spacing: 0.03em;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .nav-links a {
-    color: var(--rose);
-    font-weight: 600;
-    font-size: 1.07rem;
-    font-family: var(--font-sans);
-    transition: color 0.18s;
-  }
-  
-  .nav-links a:hover {
-    color: var(--brown);
-  }
-  
   /* Main container */
   main, .container {
     background: var(--white);
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     margin: 2.5rem auto 1.5rem;
-    max-width: 500px;
+    max-width: 600px;
     width: 96%;
     padding: 2.2rem 2rem 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-  }
-  
-  /* Typography */
-  h2, h3 {
-    color: var(--rose);
-    font-family: var(--font-serif);
   }
   
   /* Links */
@@ -178,25 +185,41 @@
   }
   
   /* Buttons */
-  button, input[type="submit"] {
+  button, input[type="submit"], .btn {
     background: var(--rose);
     color: var(--white);
     font-family: var(--font-sans);
     font-size: 1.13rem;
     font-weight: 600;
     border: none;
-    border-radius: 9px;
-    padding: 0.82em 1.4em;
-    margin-top: 1.2em;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
     cursor: pointer;
-    box-shadow: 0 2px 8px #b97a7a12;
-    transition: background 0.18s, box-shadow 0.18s;
+    box-shadow: var(--shadow);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.3s ease;
+    margin-top: 1.2em;
+    display: inline-block;
+    text-decoration: none;
   }
   
   button:hover, button:focus,
-  input[type="submit"]:hover {
+  input[type="submit"]:hover,
+  .btn:hover {
     background: var(--brown);
     box-shadow: 0 4px 16px #b97a7a22;
+    transform: scale(1.05);
+  }
+  
+  /* Transparent button style */
+  .btn-transparent {
+    background-color: transparent;
+    border: 2px solid var(--rose);
+    color: var(--rose);
+  }
+  
+  .btn-transparent:hover {
+    background-color: var(--rose);
+    color: var(--white);
   }
   
   /* Form elements */
@@ -206,7 +229,7 @@
     padding: 0.85em 1em;
     margin-top: 0.4em;
     border: 1.5px solid var(--taupe);
-    border-radius: 10px;
+    border-radius: var(--radius);
     background: var(--blush);
     color: var(--brown);
     box-sizing: border-box;
@@ -258,11 +281,15 @@
     border-bottom: 1px solid var(--blush);
     padding-bottom: 1.5rem;
     margin-bottom: 2rem;
+  
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
   
-  
-  .step.active {
-    display: flex;
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .step-icon {
@@ -292,38 +319,6 @@
     cursor: pointer;
   }
   
-  /* Buttons */
-  .btn {
-    display: inline-block;
-    background-color: var(--rose);
-    color: var(--white);
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: bold;
-    font-family: var(--font-sans);
-    font-size: 1.09rem;
-    border: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 2px 8px #b97a7a12;
-    margin-bottom: 0.5rem;
-  }
-  
-  .btn:hover {
-    background-color: var(--brown);
-    transform: scale(1.05);
-  }
-  
-  .btn-transparent {
-    background-color: transparent;
-    border: 2px solid var(--rose);
-    color: var(--rose);
-  }
-  
-  .btn-transparent:hover {
-    background-color: var(--rose);
-    color: var(--white);
-  }
-  
   /* Responsive styles */
   @media (max-width: 600px) {
     main, .container, footer, header {
@@ -345,7 +340,8 @@
       margin: 0 auto 1rem;
     }
   }
-
+  
+  /* Stay-in-touch / Newsletter section */
   #stay-in-touch {
     margin-top: 5rem;
     padding: 3rem 2rem;
@@ -371,226 +367,17 @@
   }
   
   #stay-in-touch button {
-    padding: 0.7rem 1.2rem;
-    background-color: #de6a85;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    background-color: var(--rose);
     color: white;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
-    font-weight: 600;
+    transition: background-color 0.18s ease;
   }
   
   #stay-in-touch button:hover {
-    background-color: #c25670;
-  }
-  .btn,
-  .btn-transparent {
-    text-decoration: none;
-  }
-  .step {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  
-  .step.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-nav .nav-links a {
-text-decoration: none; /* remove underline */
-color: #333;           /* adjust color if needed */
-padding: 0 12px;       /* some horizontal spacing */
-white-space: nowrap;   /* prevent wrapping */
-display: inline-block; /* help with spacing */
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #fff;
-    box-sizing: border-box;
-    flex-wrap: nowrap; /* prevent wrapping */
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 1rem; /* spacing between links */
-    overflow: visible; /* ensure no clipping */
-  }
-
-/* === GENERAL STYLES === */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #fefefe;
-    line-height: 1.6;
-  }
-  
-  h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #444;
-  }
-  
-  a:hover {
-    color: #111;
-  }
-  
-  .btn {
-    background-color: #6C63FF;
-    color: white;
-    padding: 0.75em 1.5em;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #574fd6;
-  }
-  
-  .btn-transparent {
-    background-color: transparent;
-    border: 2px solid #6C63FF;
-    color: #6C63FF;
-  }
-  
-  .btn-transparent:hover {
-    background-color: #6C63FF;
-    color: white;
-  }
-  
-  /* === NAVIGATION === */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5em;
-    font-weight: 700;
-  }
-  
-  .nav-links a {
-    margin-left: 1.5em;
-    font-weight: 500;
-  }
-  
-  /* === HERO === */
-  .hero {
-    background: linear-gradient(135deg, #e0dfff, #f6f6ff);
-    padding: 6em 2em;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 2.8em;
-    margin-bottom: 0.5em;
-    color: #2d2d2d;
-  }
-  
-  .hero p {
-    max-width: 600px;
-    margin: 0 auto 2em;
-    font-size: 1.1em;
-    color: #555;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    flex-wrap: wrap;
-  }
-  
-  /* === MAIN CONTENT === */
-  main {
-    padding: 4em 2em;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 2em;
-  }
-  
-  .step {
-    background-color: #f8f8ff;
-    border-left: 5px solid #6C63FF;
-    padding: 1.5em;
-    margin-bottom: 2em;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-  
-  .step:hover {
-    transform: translateY(-5px);
-  }
-  
-  .step-content h3 {
-    margin-top: 0;
-  }
-  
-  /* === NEWSLETTER === */
-  .newsletter {
-    background: #f0f0f9;
-    padding: 3em 2em;
-    text-align: center;
-    border-radius: 12px;
-    margin-top: 4em;
-  }
-  
-  .newsletter input {
-    padding: 0.75em;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    width: 250px;
-    margin-right: 1em;
-  }
-  
-  .newsletter button {
-    padding: 0.75em 1.5em;
-    background-color: #6C63FF;
-    border: none;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-  }
-  
-  .newsletter button:hover {
-    background-color: #574fd6;
-  }
-  
-  /* === FOOTER === */
-  footer {
-    text-align: center;
-    padding: 2em;
-    font-size: 0.9em;
-    color: #777;
-    background-color: #fafafa;
-    margin-top: 4em;
-    border-top: 1px solid #eee;
-  }
-  
-  footer a {
-    color: #6C63FF;
+    background-color: var(--brown);
   }
   
