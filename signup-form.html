@@ -7,11 +7,10 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
   <style>
-    /* Additional form-specific styling */
     body {
       font-family: var(--font-sans, 'Inter', sans-serif);
-      background-color: var(--background, #fff);
-      color: var(--text-primary, #333);
+      background-color: #fff;
+      color: #333;
       margin: 0;
       padding: 0 1rem 3rem;
     }
@@ -31,19 +30,19 @@
       font-family: var(--font-serif, 'Playfair Display', serif);
       font-weight: 700;
       font-size: 1.5rem;
-      color: var(--rose, #b35d6a);
+      color: #b35d6a;
     }
     nav .nav-links a {
       margin-left: 1.5rem;
       text-decoration: none;
-      color: var(--text-secondary, #555);
+      color: #555;
       font-weight: 600;
     }
     nav .nav-links a:hover {
-      color: var(--rose, #b35d6a);
+      color: #b35d6a;
     }
 
-    header.hero {
+    header.signup-hero {
       margin-top: 5.5rem;
       text-align: center;
       padding: 3rem 1rem 2rem;
@@ -51,55 +50,50 @@
       margin-left: auto;
       margin-right: auto;
       font-family: var(--font-serif);
-      color: var(--rose);
+      color: #b35d6a;
     }
-    header.hero p {
+
+    header.signup-hero p {
       font-style: italic;
       font-size: 1.1rem;
       line-height: 1.4;
     }
 
     main.container {
-      max-width: 500px;
+      max-width: 600px;
       margin: 2rem auto;
-      background: #fff;
-      border-radius: var(--radius, 12px);
-      box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.1));
+      background: #fffbe8;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 2rem;
-      font-family: var(--font-sans);
+      position: relative;
+      z-index: 20;
     }
 
     fieldset.step {
       border: none;
-      display: none;
+      display: block !important; /* DEBUG: Show all steps */
       padding: 0;
-      margin: 0;
+      margin: 0 0 2rem;
     }
-    fieldset.step.active {
-      display: block;
-    }
+
     legend {
       font-family: var(--font-serif);
       font-weight: 700;
       font-size: 1.25rem;
       margin-bottom: 1rem;
-      color: var(--rose);
+      color: #b35d6a;
     }
 
-    select, input[type="text"], input[type="email"] {
+    select,
+    input[type="text"],
+    input[type="email"] {
       width: 100%;
       padding: 0.6rem 0.8rem;
       border: 1.5px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
       margin-bottom: 1.25rem;
-      font-family: var(--font-sans);
-      transition: border-color 0.3s ease;
-    }
-    select:focus, input[type="text"]:focus, input[type="email"]:focus {
-      outline: none;
-      border-color: var(--rose);
-      box-shadow: 0 0 6px var(--rose);
     }
 
     .checkbox-group {
@@ -108,16 +102,9 @@
       gap: 0.7rem;
       margin-bottom: 1.5rem;
     }
+
     .checkbox-group label {
       font-size: 1rem;
-      cursor: pointer;
-      color: var(--text-primary);
-      user-select: none;
-    }
-    .checkbox-group input[type="checkbox"] {
-      margin-right: 0.5rem;
-      accent-color: var(--rose);
-      cursor: pointer;
     }
 
     .buttons {
@@ -125,46 +112,35 @@
       justify-content: flex-end;
       gap: 1rem;
     }
+
     .buttons button {
-      background-color: var(--rose);
+      background-color: #b35d6a;
       color: white;
       border: none;
       padding: 0.7rem 1.3rem;
       font-weight: 600;
-      font-family: var(--font-sans);
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .buttons button:disabled {
-      background-color: #e0b8c0;
-      cursor: not-allowed;
-    }
-    .buttons button:hover:not(:disabled) {
-      background-color: #9f4150;
     }
 
     .buttons .back-btn {
       background-color: #ddd;
       color: #555;
     }
-    .buttons .back-btn:hover {
-      background-color: #bbb;
-    }
 
     #thankyou {
-      font-family: var(--font-serif);
       font-size: 1.3rem;
-      color: var(--rose);
+      color: #b35d6a;
       text-align: center;
-      margin-top: 2rem;
+      display: none;
     }
 
-    @media (max-width: 600px) {
-      main.container {
-        margin: 1rem;
-        padding: 1.5rem;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #b35d6a;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -184,32 +160,11 @@
     <p>Find your people, share your stories, and make meaningful connections.</p>
   </header>
 
-  <style>
-  header.signup-hero {
-    margin-top: 5.5rem;
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: var(--font-serif);
-    color: var(--rose);
-  }
-
-  header.signup-hero p {
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-  </style>
-
-
   <main class="container">
-    <form id="multiStepForm" novalidate>
-      <!-- Step 1 -->
-      <fieldset class="step active" id="step1">
+    <form id="multiStepForm">
+      <fieldset class="step" id="step1">
         <legend>Which life stage best describes you?</legend>
-        <select id="category-select" name="category" required>
+        <select name="category" required>
           <option value="">Select...</option>
           <option value="student">Student</option>
           <option value="working-professional">Working Professional</option>
@@ -218,140 +173,96 @@
           <option value="other">Other</option>
         </select>
         <div class="buttons">
-          <button type="button" class="next-btn" disabled>Next ➡️</button>
+          <button type="button" class="next-btn">Next</button>
         </div>
       </fieldset>
 
-      <!-- Step 2 -->
       <fieldset class="step" id="step2">
-        <legend>What life experiences would you like to share or discuss? (Select all that apply)</legend>
+        <legend>What life experiences would you like to share or discuss?</legend>
         <div class="checkbox-group">
           <label><input type="checkbox" name="life-experiences" value="career"> Career journeys 💼</label>
           <label><input type="checkbox" name="life-experiences" value="parenting"> Parenting 🧸</label>
           <label><input type="checkbox" name="life-experiences" value="moving-cities"> Moving cities 🌏</label>
           <label><input type="checkbox" name="life-experiences" value="relationships"> Relationships 💬</label>
           <label><input type="checkbox" name="life-experiences" value="self-discovery"> Self-discovery 🌱</label>
-          <label><input type="checkbox" name="life-experiences" value="other"> Other</label>
         </div>
         <div class="buttons">
-          <button type="button" class="back-btn">⬅️ Back</button>
-          <button type="button" class="next-btn">Next ➡️</button>
+          <button type="button" class="back-btn">Back</button>
+          <button type="button" class="next-btn">Next</button>
         </div>
       </fieldset>
 
-      <!-- Step 3 -->
       <fieldset class="step" id="step3">
-        <legend>How do you like to spend time with new friends? (Select all that apply)</legend>
+        <legend>How do you like to spend time with new friends?</legend>
         <div class="checkbox-group">
           <label><input type="checkbox" name="spend-time" value="exploring"> Exploring 🛍️🗺️</label>
-          <label><input type="checkbox" name="spend-time" value="walk-coffee"> Walk + coffee ☕🚶‍♀️</label>
-          <label><input type="checkbox" name="spend-time" value="night-dinner"> Night out + dinner 🍽️🎶</label>
-          <label><input type="checkbox" name="spend-time" value="book-discussion"> Book discussions 📚</label>
-          <label><input type="checkbox" name="spend-time" value="movie-night"> Movie night 🎥</label>
+          <label><input type="checkbox" name="spend-time" value="coffee"> Walk + coffee ☕🚶‍♀️</label>
+          <label><input type="checkbox" name="spend-time" value="dinner"> Night out + dinner 🍽️🎶</label>
         </div>
         <div class="buttons">
-          <button type="button" class="back-btn">⬅️ Back</button>
-          <button type="button" class="next-btn">Next ➡️</button>
+          <button type="button" class="back-btn">Back</button>
+          <button type="button" class="next-btn">Next</button>
         </div>
       </fieldset>
 
-      <!-- Step 4 -->
       <fieldset class="step" id="step4">
         <legend>Your details</legend>
-        <label for="name-input">Your name 👋</label>
-        <input type="text" id="name-input" name="name" placeholder="First name" required />
-
-        <label for="email-input">Your email 📧</label>
-        <input type="email" id="email-input" name="email" placeholder="you@example.com" required />
-
-        <label for="phone-input">Your phone number 📱 (optional)</label>
-        <input type="text" id="phone-input" name="phone" placeholder="+91 98765 43210" pattern="^\+?\d{7,15}$" />
-
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email address" required />
+        <input type="text" name="phone" placeholder="Phone (optional)" />
         <div class="buttons">
-          <button type="button" class="back-btn">⬅️ Back</button>
-          <button type="submit" id="submitBtn" disabled>Join Weaverly</button>
+          <button type="button" class="back-btn">Back</button>
+          <button type="submit">Submit</button>
         </div>
       </fieldset>
     </form>
 
-    <div id="thankyou" style="display:none; margin-top: 2rem; font-family: var(--font-serif); font-size: 1.3rem; color: var(--rose); text-align: center;">
-      Thanks for signing up! We’ll be in touch soon. 💛
-    </div>
+    <div id="thankyou">Thanks for signing up! 💛</div>
   </main>
 
-  <footer style="text-align:center; padding: 2rem 1rem; font-family: var(--font-serif); color: var(--rose); font-size: 0.9rem;">
+  <footer>
     &copy; 2025 Weaverly. Made with ❤️ for real friendships.<br />
-    <a href="#hero" style="color: var(--rose); text-decoration: underline;">Back to top</a>
+    <a href="#hero">Back to top</a>
   </footer>
 
   <script>
-    (function () {
-      const form = document.getElementById('multiStepForm');
-      const steps = Array.from(form.querySelectorAll('.step'));
-      let currentStep = 0;
+    try {
+      const form = document.getElementById("multiStepForm");
+      const steps = form.querySelectorAll(".step");
+      let current = 0;
 
-      const updateStepVisibility = () => {
-        steps.forEach((step, i) => {
-          step.classList.toggle('active', i === currentStep);
+      function showStep(i) {
+        steps.forEach((s, index) => {
+          s.style.display = index === i ? "block" : "none";
         });
-      };
-
-      // Validate Step 1 select
-      const categorySelect = document.getElementById('category-select');
-      const step1NextBtn = steps[0].querySelector('.next-btn');
-      categorySelect.addEventListener('change', () => {
-        step1NextBtn.disabled = !categorySelect.value;
-      });
-
-      // Handle buttons
-      form.querySelectorAll('.next-btn').forEach((btn) =>
-        btn.addEventListener('click', () => {
-          if (currentStep === 0 && !categorySelect.value) return;
-          if (currentStep === steps.length - 1) return;
-
-          currentStep++;
-          updateStepVisibility();
-          updateButtons();
-        })
-      );
-
-      form.querySelectorAll('.back-btn').forEach((btn) =>
-        btn.addEventListener('click', () => {
-          if (currentStep === 0) return;
-          currentStep--;
-          updateStepVisibility();
-          updateButtons();
-        })
-      );
-
-      const nameInput = document.getElementById('name-input');
-      const emailInput = document.getElementById('email-input');
-      const submitBtn = document.getElementById('submitBtn');
-
-      const validateStep4 = () => {
-        const nameValid = nameInput.value.trim().length > 0;
-        const emailValid = emailInput.validity.valid;
-        submitBtn.disabled = !(nameValid && emailValid);
-      };
-
-      nameInput.addEventListener('input', validateStep4);
-      emailInput.addEventListener('input', validateStep4);
-
-      function updateButtons() {
-        if (currentStep === steps.length - 1) {
-          validateStep4();
-        }
       }
 
-      form.addEventListener('submit', (e) => {
+      const update = () => showStep(current);
+
+      form.querySelectorAll(".next-btn").forEach(btn =>
+        btn.addEventListener("click", () => {
+          if (current < steps.length - 1) current++;
+          update();
+        })
+      );
+
+      form.querySelectorAll(".back-btn").forEach(btn =>
+        btn.addEventListener("click", () => {
+          if (current > 0) current--;
+          update();
+        })
+      );
+
+      form.addEventListener("submit", e => {
         e.preventDefault();
-        form.style.display = 'none';
-        document.getElementById('thankyou').style.display = 'block';
+        form.style.display = "none";
+        document.getElementById("thankyou").style.display = "block";
       });
 
-      updateStepVisibility();
-      updateButtons();
-    })();
+      update();
+    } catch (err) {
+      console.error("JS Error:", err);
+    }
   </script>
 
 </body>

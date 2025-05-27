@@ -110,7 +110,7 @@
     justify-content: center;
     min-height: 80vh;
     text-align: center;
-    background-image: url('./assets/group-illustration.jpg');
+    background-image: url('./assets/hero-image.jpeg');
     background-size: cover;
     background-position: center;
     margin-top: 65px;
@@ -381,3 +381,43 @@
     background-color: var(--brown);
   }
   
+  /* Step image styling */
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.step-image {
+  width: 30%;
+  max-width: 160px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-image {
+    width: 80%;
+    max-width: 280px;
+    margin-bottom: 1rem;
+  }
+
+  .step-content {
+    width: 100%;
+  }
+}
