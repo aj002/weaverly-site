@@ -4,116 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weaverly</title>
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+  <!-- Google Fonts for Playfair Display and Helvetica Neue fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="index">
+  <!-- Hero Section with Absolute Nav -->
+  <section id="hero" class="hero">
+    <nav class="nav-absolute container">
+      <div class="logo">Weaverly</div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
 
-  <nav>
-    <div class="logo">Weaverly</div>
-    <div class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
-  <header class="hero" id="hero">
     <div class="hero-content">
-      <h1>Real conversations, <br>
-        Lasting connections.</h1>
-        <b>Curated small, in-person meetups for women to connect meaningfully with others in their life stage.</b>
-      </p>
-      <div class="hero-buttons">
-        <a href="signup-form.html" class="btn">Join a Meetup</a>
-        <a href="#how" class="btn btn-transparent">How It Works</a>
+      <h1>Make new friends, guaranteed</h1>
+      <p>Get matched with a group of carefully curated women in your city.</p>
+      <div class="mt-lg">
+        <a href="#signup" class="btn btn-accent">Get Started</a>
+        <a href="#how-it-works" class="btn">How It Works</a>
       </div>
     </div>
-  </header>
-
-  <main>
-    <section id="how" class="how-it-works">
-    <h2 class="section-title">How It Works</h2>
-
-    <div class="step-gallery">
-      <div class="step-card">
-        <img src="assets/tellabtyourself.jpg" alt="Tell us about yourself">
-        <div class="step-hover-text">Tell us about yourself</div>
-      </div>
-      <div class="step-card">
-        <img src="assets/meetmatches.jpg" alt="Meet your matches">
-        <div class="step-hover-text">Meet your matches</div>
-      </div>
-      <div class="step-card">
-        <img src="assets/lastingconnections.jpg" alt="Join a recurring series">
-        <div class="step-hover-text">Join a recurring series</div>
-      </div>
-    </div>
-
-    <p class="steps-caption">It’s that simple – dream, design, receive.</p>
   </section>
 
-    <!-- <section id="how">
-      <h2 class="section-title">How It Works</h2>
-
-      <div class="steps-container">
-        <div class="step">
-          <div class="step-content">
-            <h3><strong>👋 Tell Us About Yourself</strong></h3>
-            <p>Share your <strong>interests</strong>, <strong>life stage</strong>, and what you’re looking for in a connection. The more we know, the better we can match you with people who truly align with your journey.</p>
-            <img src="assets/step1.jpg" alt="Tell us about yourself">
-          </div>
+  <!-- How It Works Section (white background) -->
+  <section id="how-it-works" class="section bg-white">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <div class="card text-center">
+          <h3>Sign Up</h3>
+          <p>Provide your interests and location.</p>
         </div>
-
-        <div class="step">
-          <div class="step-content">
-            <h3><strong>🤝 Meet Your Matches</strong></h3>
-            <p>You’ll be introduced to a small group of <strong>3–5 like-minded women</strong>. A trained <strong>host</strong> will guide a warm, engaging conversation.</p>
-            <img src="assets/step2.jpg" alt="Meet your matches">
-          </div>
+        <div class="card text-center">
+          <h3>Get Matched</h3>
+          <p>We’ll connect you with a small group.</p>
         </div>
-
-        <div class="step">
-          <div class="step-content">
-            <h3><strong>🔄 Sign Up for Recurring Meetups</strong></h3>
-            <p>Loved your group? Continue with a <strong>6-week series</strong> of recurring meetups. We handle the logistics — you just show up and enjoy!</p>
-            <img src="assets/step3.jpg" alt="Recurring meetups">
-          </div>
+        <div class="card text-center">
+          <h3>Meet Up</h3>
+          <p>Enjoy your first gathering together.</p>
         </div>
       </div>
-    </section> -->
+    </div>
+  </section>
 
-    
-    
-    <section id="stay-in-touch">
-      <h2>Stay in Touch</h2>
-      <p>Not ready to commit, but want to stay in touch? Sign up for our mailing list and we'll keep you updated on new city launches, series dates, and more.</p>
-      <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
-  </main>
+  <!-- Testimonials Section -->
+  <section class="section">
+    <div class="container">
+      <h2>What Our Grads Are Saying</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        <div class="card">
+          <p>“Uprooting my life was scary—Weaverly made it feel like home in days.”</p>
+          <p class="testimonial-author">— Paola H., 25, Brooklyn</p>
+        </div>
+        <div class="card">
+          <p>“Authentic connection at its finest—no small talk, just real people.”</p>
+          <p class="testimonial-author">— Sara K., 32, Chicago</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Weaverly. Made with ❤️ for real friendships.<br>
-      <a href="#hero">Back to top</a>
-    </p>
+  <!-- Signup Section -->
+  <section id="signup" class="section bg-white">
+    <div class="container">
+      <h2>Stay in the Loop</h2>
+      <p>Sign up for updates on upcoming events and community news.</p>
+      <div class="card mt-lg">
+        <form action="#" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" class="form-input" placeholder="Your city" required>
+          </div>
+          <div class="md:col-span-2 mt-md text-center">
+            <button type="submit" class="btn btn-accent">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container text-center">
+      &copy; 2025 Weaverly. All rights reserved. | <a href="mailto:weaverlygals@gmail.com">weaverlygals@gmail.com</a>
+    </div>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.step').forEach(step => {
-      observer.observe(step);
-    });
-  </script>
-
 </body>
 </html>

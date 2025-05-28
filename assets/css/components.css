@@ -1,0 +1,122 @@
+/* components.css */
+
+/* — RESET BUTTON / LINK STYLES — */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0.375rem;
+  background-color: var(--color-button);
+  color: var(--color-bg);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: filter 0.2s;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  position: relative;
+}
+a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-link);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+a:hover::before {
+  transform: scaleX(1);
+}
+
+/* — CARD — */
+.card {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  padding: var(--space-md);
+}
+
+/* — FORM ELEMENTS — */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--color-text);
+  border-radius: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  background: transparent;
+  color: var(--color-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(249,232,208,0.3);
+}
+
+/* — HERO COMPONENT — */
+.hero {
+  position: relative;
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.nav-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: transparent;
+  z-index: 10;
+}
+.nav-links a {
+  margin-left: var(--space-lg);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 5;
+}
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: var(--h1-size);
+  margin-bottom: var(--space-md);
+}
+.hero-content p {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-lg);
+}

@@ -2,51 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us – Weaverly</title>
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,400|Inter:400,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-
+  <!-- Google Fonts for Playfair Display and Helvetica Neue fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <!-- Hero Section for About -->
+  <section class="hero">
+    <nav class="nav-absolute container">
+      <div class="logo">Weaverly</div>
+      <div class="nav-links">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>About Weaverly</h1>
+      <p>Creating meaningful connections for women, everywhere.</p>
+    </div>
+  </section>
 
-<nav>
-  <div class="logo">Weaverly</div>
-  <div class="nav-links">
-    <a href="index.html#hero">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+  <!-- About Content Section -->
+  <section class="section bg-white">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>We believe every woman deserves a space to be seen, heard, and deeply understood. Whether you're entering a new phase of life, building community in a new city, or simply seeking meaningful conversation, Weaverly is a place where real connection begins.</p>
+      <p>Our gatherings are thoughtfully curated to move beyond small talk. With guided dialogue, shared experiences, and intentional design, we create spaces that feel both grounding and expansive—spaces where belonging comes naturally.</p>
+    </div>
+  </section>
 
+  <!-- Founders Section -->
+  <section class="section">
+    <div class="container">
+      <div class="card grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+        <img src="assets/founders.jpg" alt="Founders Ananya and Aastha" class="mb-md md:mb-0">
+        <div>
+          <h2>Meet the Founders</h2>
+          <p>We’re <strong>Ananya</strong> and <strong>Aastha</strong>, lifelong friends who created Weaverly out of a shared belief: that friendship in adulthood should feel as effortless and authentic as it did when we were young. We know the joy of being truly known—and we want to help you find that too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="about-content">
-  <p><strong>Welcome to Weaverly.</strong></p>
-  
-  <p>
-    We believe every woman deserves a space to be seen, heard, and deeply understood. Whether you're entering a new phase of life, building community in a new city, or simply seeking meaningful conversation, Weaverly is a place where real connection begins.
-  </p>
+  <!-- Call to Action Section -->
+  <section class="section bg-white">
+    <div class="container text-center">
+      <h2>Join Our Community</h2>
+      <p>Ready to find your circle? Let’s get started.</p>
+      <a href="index.html#signup" class="btn btn-accent mt-md">Get Started</a>
+    </div>
+  </section>
 
-  <p>
-    Our gatherings are thoughtfully curated to move beyond small talk. With guided dialogue, shared experiences, and intentional design, we create spaces that feel both grounding and expansive—spaces where belonging comes naturally.
-  </p>
-
-  <div class="founder-section">
-    <img src="./assets/founders.jpg" class="founders-photo" alt="Founders Ananya and Aastha">
-    <p>
-      We’re <strong>Ananya</strong> and <strong>Aastha</strong>, lifelong friends who created Weaverly out of a shared belief: that friendship in adulthood should feel as effortless and authentic as it did when we were young. We know the joy of being truly known—and we want to help you find that too.
-    </p>
-  </div>
-
-  <p>
-    Come as you are. Stay for the stories, the laughter, the tears—and leave with something lasting.
-  </p>
-</section>
-
-
-<footer>
-  &copy; 2025 Weaverly. All rights reserved. | <a href="mailto:weaverlygals@gmail.com">weaverlygals@gmail.com</a>
-</footer>
-
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container text-center">
+      &copy; 2025 Weaverly. All rights reserved. | <a href="mailto:weaverlygals@gmail.com">weaverlygals@gmail.com</a>
+    </div>
+  </footer>
 </body>
 </html>
